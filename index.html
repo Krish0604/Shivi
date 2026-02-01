@@ -53,10 +53,12 @@
         }
 
         img {
-            width: 100%;
-            margin-top: 15px;
+            max-width: 80%; /* Bilder verkleinern */
+            height: auto;   /* Höhe proportional */
+            margin: 15px auto 0 auto; /* Zentrieren */
             border-radius: 15px;
-            display: none; /* wird via JS sichtbar gemacht */
+            display: none;  /* wird via JS sichtbar gemacht */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         .message {
