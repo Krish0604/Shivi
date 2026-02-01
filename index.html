@@ -116,6 +116,8 @@
 <script>
 function sayYes() {
     document.getElementById("message").innerText = "Yaaay!! 💕 I knew it 😍";
+    const container = document.querySelector(".image-container");
+    container.classList.add("show");
     document.getElementById("yesImage").classList.add("show");
     document.getElementById("noImage").classList.remove("show");
 }
@@ -132,6 +134,8 @@ function sayNo() {
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     document.getElementById("message").innerText = randomMessage;
 
+    const container = document.querySelector(".image-container");
+    container.classList.add("show");
     document.getElementById("yesImage").classList.remove("show");
     document.getElementById("noImage").classList.add("show");
 }
