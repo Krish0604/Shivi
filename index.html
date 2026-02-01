@@ -60,13 +60,13 @@
         justify-content: center;
         align-items: center;
         gap: 10px;
-        height: 0; /* initial nicht sichtbar */
+        max-height: 0;
         overflow: hidden;
-        transition: height 0.5s ease; /* Höhe animieren */
+        transition: max-height 0.5s ease; /* Höhe animieren */
     }
 
     .image-container.show {
-        height: auto; /* wird durch Inhalt definiert, Animation klappt bei JS ggf. mit max-height */
+        max-height: 500px; /* wird durch Inhalt definiert, Animation klappt bei JS ggf. mit max-height */
     }
     
     img {
