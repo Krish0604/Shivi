@@ -52,19 +52,24 @@
             background-color: #ccc;
         }
 
+        .image-container {
+            margin-top: 20px;
+            min-height: 220px; /* verhindert Verschieben beim Anzeigen */
+        }
+
         img {
-            width: 200px;          /* feste Breite */
-            height: auto;          /* proportional skalieren */
-            display: block;
-            margin: 15px auto 0 auto; /* zentrieren */
+            width: 200px;
+            height: auto;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            opacity: 0;            /* für sanftes Einblenden */
-            transform: scale(0.8); /* kleiner starten */
+            display: none;
+            opacity: 0;
+            transform: scale(0.8);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         img.show {
+            display: block;
             opacity: 1;
             transform: scale(1);
         }
@@ -83,19 +88,18 @@
             <button class="no" onclick="sayNo()">No 🙄</button>
         </div>
         <p class="message" id="message"></p>
-        <img id="yesImage" src="IMG_5657.JPG" alt="Yes Image">
-        <img id="noImage" src="crying.png" alt="Crying Emoji">
+
+        <div class="image-container">
+            <img id="yesImage" src="IMG_5657.JPG" alt="Yes Image">
+            <img id="noImage" src="crying.png" alt="Crying Emoji">
+        </div>
     </div>
 
     <script>
         function sayYes() {
             document.getElementById("message").innerText = "Yaaay!! 💕 I knew it 😍";
-            const yesImg = document.getElementById("yesImage");
-            const noImg = document.getElementById("noImage");
-
-            noImg.classList.remove("show");
-            yesImg.classList.add("show");
-            noImg.classList.remove("show");
+            document.getElementById("yesImage").classList.add("show");
+            document.getElementById("noImage").classList.remove("show");
         }
 
         function sayNo() {
@@ -110,11 +114,8 @@
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
             document.getElementById("message").innerText = randomMessage;
 
-            const yesImg = document.getElementById("yesImage");
-            const noImg = document.getElementById("noImage");
-
-            yesImg.classList.remove("show");
-            noImg.classList.add("show");
+            document.getElementById("yesImage").classList.remove("show");
+            document.getElementById("noImage").classList.add("show");
         }
     </script>
 </body>
