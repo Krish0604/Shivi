@@ -47,23 +47,11 @@
       background-color: #ccc;
     }
 
-    .image-box {
+    img {
       width: 100%;
-      height: 180px;
       margin-top: 15px;
       border-radius: 15px;
       display: none;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-    }
-
-    .yes-img {
-      background-color: #ffe0e9;
-    }
-
-    .no-img {
-      background-color: #eee;
     }
 
     .message {
@@ -82,9 +70,9 @@
 
     <p class="message" id="message"></p>
 
-    <!-- Platzhalter -->
-    <div id="yesImage" class="image-box yes-img">💖</div>
-    <div id="noImage" class="image-box no-img">😜</div>
+    <!-- PNG Platzhalter -->
+    <img id="yesImage" src="" alt="Yes Image">
+    <img id="noImage" src="" alt="No Image">
   </div>
 
   <script>
@@ -92,7 +80,7 @@
       document.getElementById("message").innerText =
         "Yaaay!! 💕 I knew it 😍";
 
-      document.getElementById("yesImage").style.display = "flex";
+      document.getElementById("yesImage").style.display = "block";
       document.getElementById("noImage").style.display = "none";
     }
 
@@ -100,7 +88,7 @@
       document.getElementById("message").innerText =
         "Okay… but I’m still adorable 😏";
 
-      document.getElementById("noImage").style.display = "flex";
+      document.getElementById("noImage").style.display = "block";
       document.getElementById("yesImage").style.display = "none";
     }
   </script>
