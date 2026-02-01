@@ -51,7 +51,7 @@
       width: 100%;
       margin-top: 15px;
       border-radius: 15px;
-      display: none;
+      display: none; /* wird via JS sichtbar gemacht */
     }
 
     .message {
@@ -80,8 +80,17 @@
       document.getElementById("message").innerText =
         "Yaaay!! 💕 I knew it 😍";
 
-      document.getElementById("yesImage").style.display = "block";
-      document.getElementById("noImage").style.display = "none";
+      const yesImg = document.getElementById("yesImage");
+      const noImg = document.getElementById("noImage");
+
+      // Bilder sichtbar machen
+      yesImg.style.display = "block";
+      noImg.style.display = "none";
+
+      // Optional: prüfen, ob Bild geladen wird
+      yesImg.onerror = () => {
+        alert("Fehler: Das Bild IMG_5657.png konnte nicht geladen werden!");
+      }
     }
 
     function sayNo() {
@@ -99,8 +108,17 @@
 
       document.getElementById("message").innerText = randomMessage;
 
-      document.getElementById("noImage").style.display = "block";
-      document.getElementById("yesImage").style.display = "none";
+      const yesImg = document.getElementById("yesImage");
+      const noImg = document.getElementById("noImage");
+
+      // Bilder sichtbar machen
+      noImg.style.display = "block";
+      yesImg.style.display = "none";
+
+      // Optional: prüfen, ob Bild geladen wird
+      noImg.onerror = () => {
+        alert("Fehler: Das Crying Emoji konnte nicht geladen werden!");
+      }
     }
   </script>
 
