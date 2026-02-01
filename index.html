@@ -22,6 +22,8 @@
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         max-width: 320px;
+        display: inline-block;
+        transition: height 0.5s ease; /* sanfte Anpassung der Höhe */
     }
 
     h1 {
@@ -54,13 +56,19 @@
 
     .image-container {
         margin-top: 20px;
-        min-height: 220px;  /* verhindert Springen */
         display: flex;
-        justify-content: center; /* horizontal zentrieren */
-        align-items: center;     /* vertikal zentrieren */
-        gap: 10px;               /* falls beide Bilder sichtbar sein könnten */
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 0; /* initial nicht sichtbar */
+        overflow: hidden;
+        transition: height 0.5s ease; /* Höhe animieren */
     }
 
+    .image-container.show {
+        height: auto; /* wird durch Inhalt definiert, Animation klappt bei JS ggf. mit max-height */
+    }
+    
     img {
         max-width: 100%;
         width: 200px;
@@ -70,8 +78,6 @@
         opacity: 0;
         transform: scale(0.8);
         transition: opacity 0.5s ease, transform 0.5s ease;
-        display: block; /* statt none */
-        position: absolute; /* optional, wenn nur ein Bild angezeigt wird */
     }
 
     img.show {
