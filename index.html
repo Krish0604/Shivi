@@ -76,14 +76,6 @@
   </div>
 
   <script>
-    const noMessages = [
-      "Are you sure? 🥺",
-      "Think again 😏",
-      "That hurts my heart 💔",
-      "Last chance 😤",
-      "Okay… but I’m still adorable 😌"
-    ];
-
     function sayYes() {
       document.getElementById("message").innerText =
         "Yaaay!! 💕 I knew it 😍";
@@ -93,10 +85,19 @@
     }
 
     function sayNo() {
-      const random =
-        noMessages[Math.floor(Math.random() * noMessages.length)];
+      const messages = [
+        "Okay… but I’m still adorable 😏",
+        "Hmm… are you *sure*? 🥺💔",
+        "That hurts a little… but I’ll survive 😌",
+        "No today, yes tomorrow? 😜",
+        "Wow. Rejected. Still cute though 😎",
+        "I’ll pretend I didn’t see that 😇"
+      ];
 
-      document.getElementById("message").innerText = random;
+      const randomMessage =
+        messages[Math.floor(Math.random() * messages.length)];
+
+      document.getElementById("message").innerText = randomMessage;
 
       document.getElementById("noImage").style.display = "block";
       document.getElementById("yesImage").style.display = "none";
