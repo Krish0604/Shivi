@@ -47,11 +47,23 @@
       background-color: #ccc;
     }
 
-    img {
+    .image-box {
       width: 100%;
-      border-radius: 15px;
+      height: 180px;
       margin-top: 15px;
+      border-radius: 15px;
       display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+    }
+
+    .yes-img {
+      background-color: #ffe0e9;
+    }
+
+    .no-img {
+      background-color: #eee;
     }
 
     .message {
@@ -70,41 +82,26 @@
 
     <p class="message" id="message"></p>
 
-    <img id="loveImage" alt="Cute bear">
+    <!-- Platzhalter -->
+    <div id="yesImage" class="image-box yes-img">💖</div>
+    <div id="noImage" class="image-box no-img">😜</div>
   </div>
 
   <script>
-    const noMessages = [
-      "Are you sure? 🥺",
-      "Think again 😏",
-      "That hurts my heart 💔",
-      "Last chance 😤",
-      "Okay but I’m still cute 😌"
-    ];
-
-    /* ✅ STABILE, ÖFFENTLICHE BÄREN-BILDER */
-    const bearImages = [
-      "https://placebear.com/300/300",
-      "https://placebear.com/301/301",
-      "https://placebear.com/302/302"
-    ];
-
-    function sayNo() {
-      const random =
-        noMessages[Math.floor(Math.random() * noMessages.length)];
-      document.getElementById("message").innerText = random;
-    }
-
     function sayYes() {
-      const img = document.getElementById("loveImage");
-      const randomBear =
-        bearImages[Math.floor(Math.random() * bearImages.length)];
-
       document.getElementById("message").innerText =
         "Yaaay!! 💕 I knew it 😍";
 
-      img.src = randomBear;
-      img.style.display = "block";
+      document.getElementById("yesImage").style.display = "flex";
+      document.getElementById("noImage").style.display = "none";
+    }
+
+    function sayNo() {
+      document.getElementById("message").innerText =
+        "Okay… but I’m still adorable 😏";
+
+      document.getElementById("noImage").style.display = "flex";
+      document.getElementById("yesImage").style.display = "none";
     }
   </script>
 
