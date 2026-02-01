@@ -1,122 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>💘 Valentine?</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>💘 Valentine?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+        }
 
-  <style>
-  body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-  }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 320px;
+        }
 
-  .card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    max-width: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+        h1 {
+            color: #ff4d6d;
+        }
 
-  h1 {
-    color: #ff4d6d;
-  }
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+        }
 
-  button {
-    padding: 12px 20px;
-    margin: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-  }
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
 
-  .yes {
-    background-color: #ff4d6d;
-    color: white;
-  }
+        .no {
+            background-color: #ccc;
+        }
 
-  .no {
-    background-color: #ccc;
-  }
+        img {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 15px;
+            display: none; /* wird via JS sichtbar gemacht */
+        }
 
-  .card img {
-    width: 70%;       
-    max-width: 180px; 
-    height: auto;     
-    margin-top: 15px; 
-    border-radius: 15px;
-    display: block;  
-  }
-
-  .message {
-    margin-top: 15px;
-    font-weight: bold;
-  }
-</style>
-
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <div class="card">
+        <h1>💖 Will you be my Valentine? 💖</h1>
+        <button class="yes" onclick="sayYes()">Yes 💕</button>
+        <button class="no" onclick="sayNo()">No 🙄</button>
+        <p class="message" id="message"></p>
+        <!-- PNG Platzhalter -->
+        <img id="yesImage" src="IMG_5657.JPG" alt="Yes Image">
+        <img id="noImage" src="crying.png" alt="Crying Emoji">
+    </div>
 
-  <div class="card">
-    <h1>💖 Will you be my Valentine? 💖</h1>
+    <script>
+        function sayYes() {
+            document.getElementById("message").innerText = "Yaaay!! 💕 I knew it 😍";
+            const yesImg = document.getElementById("yesImage");
+            const noImg = document.getElementById("noImage");
 
-    <button class="yes" onclick="sayYes()">Yes 💕</button>
-    <button class="no" onclick="sayNo()">No 🙄</button>
+            // Bilder sichtbar machen
+            yesImg.style.display = "block";
+            noImg.style.display = "none";
+        }
 
-    <p class="message" id="message"></p>
+        function sayNo() {
+            const messages = [
+                "Okay… but I’m still adorable 😏",
+                "Hmm… are you *sure*? 🥺💔",
+                "That hurts a little… but I’ll survive 😌",
+                "No today, yes tomorrow? 😜",
+                "Wow. Rejected. Still cute though 😎",
+                "I’ll pretend I didn’t see that 😇"
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById("message").innerText = randomMessage;
 
-    <img id="yesImage" src="IMG_5657.JPG" alt="Yes Image" style="display: none;">
-    <img id="noImage" src="crying.png" alt="Crying Emoji" style="display: none;">
-  </div>
+            const yesImg = document.getElementById("yesImage");
+            const noImg = document.getElementById("noImage");
 
-  <script>
-    function sayYes() {
-      document.getElementById("message").innerText =
-        "Yaaay!! 💕 I knew it 😍";
-
-      const yesImg = document.getElementById("yesImage");
-      const noImg = document.getElementById("noImage");
-
-      // Bilder sichtbar machen
-      yesImg.style.display = "block";
-      noImg.style.display = "none";
-      
-    }
-
-    function sayNo() {
-      const messages = [
-        "Okay… but I’m still adorable 😏",
-        "Hmm… are you *sure*? 🥺💔",
-        "That hurts a little… but I’ll survive 😌",
-        "No today, yes tomorrow? 😜",
-        "Wow. Rejected. Still cute though 😎",
-        "I’ll pretend I didn’t see that 😇"
-      ];
-
-      const randomMessage =
-        messages[Math.floor(Math.random() * messages.length)];
-
-      document.getElementById("message").innerText = randomMessage;
-
-      const yesImg = document.getElementById("yesImage");
-      const noImg = document.getElementById("noImage");
-
-      // Bilder sichtbar machen
-      noImg.style.display = "block";
-      yesImg.style.display = "none";
-    }
-  </script>
-
+            // Bilder sichtbar machen
+            noImg.style.display = "block";
+            yesImg.style.display = "none";
+        }
+    </script>
 </body>
 </html>
