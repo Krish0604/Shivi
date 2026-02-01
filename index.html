@@ -28,9 +28,15 @@
             color: #ff4d6d;
         }
 
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Abstand zwischen den Buttons */
+            margin-top: 15px;
+        }
+
         button {
             padding: 12px 20px;
-            margin: 10px;
             font-size: 16px;
             border: none;
             border-radius: 12px;
@@ -62,8 +68,10 @@
 <body>
     <div class="card">
         <h1>💖 Will you be my Valentine? 💖</h1>
-        <button class="yes" onclick="sayYes()">Yes 💕</button>
-        <button class="no" onclick="sayNo()">No 🙄</button>
+        <div class="button-container">
+            <button class="yes" onclick="sayYes()">Yes 💕</button>
+            <button class="no" onclick="sayNo()">No 🙄</button>
+        </div>
         <p class="message" id="message"></p>
         <!-- PNG Platzhalter -->
         <img id="yesImage" src="IMG_5657.JPG" alt="Yes Image">
