@@ -31,7 +31,7 @@
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 15px; /* Abstand zwischen den Buttons */
+            gap: 15px;
             margin-top: 15px;
         }
 
@@ -53,12 +53,20 @@
         }
 
         img {
-            max-width: 80%; /* Bilder verkleinern */
-            height: auto;   /* Höhe proportional */
-            margin: 15px auto 0 auto; /* Zentrieren */
+            width: 200px;          /* feste Breite */
+            height: auto;          /* proportional skalieren */
+            display: block;
+            margin: 15px auto 0 auto; /* zentrieren */
             border-radius: 15px;
-            display: none;  /* wird via JS sichtbar gemacht */
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            opacity: 0;            /* für sanftes Einblenden */
+            transform: scale(0.8); /* kleiner starten */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        img.show {
+            opacity: 1;
+            transform: scale(1);
         }
 
         .message {
@@ -75,7 +83,6 @@
             <button class="no" onclick="sayNo()">No 🙄</button>
         </div>
         <p class="message" id="message"></p>
-        <!-- PNG Platzhalter -->
         <img id="yesImage" src="IMG_5657.JPG" alt="Yes Image">
         <img id="noImage" src="crying.png" alt="Crying Emoji">
     </div>
@@ -86,9 +93,9 @@
             const yesImg = document.getElementById("yesImage");
             const noImg = document.getElementById("noImage");
 
-            // Bilder sichtbar machen
-            yesImg.style.display = "block";
-            noImg.style.display = "none";
+            noImg.classList.remove("show");
+            yesImg.classList.add("show");
+            noImg.classList.remove("show");
         }
 
         function sayNo() {
@@ -106,9 +113,8 @@
             const yesImg = document.getElementById("yesImage");
             const noImg = document.getElementById("noImage");
 
-            // Bilder sichtbar machen
-            noImg.style.display = "block";
-            yesImg.style.display = "none";
+            yesImg.classList.remove("show");
+            noImg.classList.add("show");
         }
     </script>
 </body>
